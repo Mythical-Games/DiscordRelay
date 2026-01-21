@@ -3,11 +3,9 @@ plugins {
     id("org.allaymc.gradle.plugin") version "0.2.1"
 }
 
-// TODO: Update the group to yours (should be same to the package of the plugin main class)
-group = "org.allaymc.javaplugintemplate"
-// TODO: Update the description to yours
-description = "Java plugin template for allay server"
-version = "0.1.0"
+group = "com.mythicalgames.discordrelay"
+description = "A Simple Minecraft to Discord Relay for the AllayMC Server Software!"
+version = "2.0.0"
 
 java {
     toolchain {
@@ -15,24 +13,24 @@ java {
     }
 }
 
-// See also https://github.com/AllayMC/AllayGradle
-allay {
-    // TODO: Update the api version to the latest
-    // You can find the latest version here: https://central.sonatype.com/artifact/org.allaymc.allay/api
-    api = "0.19.0"
+repositories {
+    maven("https://jitpack.io/")
+    maven("https://storehouse.okaeri.eu/repository/maven-public/")
+}
 
+allay {
+    api = "0.22.0"
     plugin {
-        // TODO: Update the entrance when you change your plugin main class
-        // Same to `org.allaymc.javaplugintemplate.JavaPluginTemplate`
-        entrance = ".JavaPluginTemplate"
-        // TODO: Use your handsome name here
-        authors += "YourNameHere"
-        // TODO: Update the website to yours
-        website = "https://github.com/AllayMC/JavaPluginTemplate"
+        entrance = ".DiscordRelay"
+        authors += "Acktar"
+        website = "https://github.com/Mythical-Games/DiscordChat"
     }
 }
 
 dependencies {
     compileOnly(group = "org.projectlombok", name = "lombok", version = "1.18.34")
+    implementation("com.github.discord-jda:JDA:v5.3.0")
+    implementation("eu.okaeri:okaeri-configs-yaml-snakeyaml:6.0.0-beta.1")
+
     annotationProcessor(group = "org.projectlombok", name = "lombok", version = "1.18.34")
 }
