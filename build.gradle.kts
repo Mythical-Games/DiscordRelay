@@ -19,7 +19,7 @@ repositories {
 }
 
 allay {
-    api = "0.22.0"
+    api = "0.27.0"
     plugin {
         entrance = ".DiscordRelay"
         authors += "Acktar"
